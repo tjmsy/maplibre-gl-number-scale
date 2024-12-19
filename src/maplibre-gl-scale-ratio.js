@@ -80,7 +80,7 @@ export class ScaleRatioControl {
    */
   addScaleRatioControl() {
     this.container = document.createElement('div');
-    this.container.className = `maplibre-ctrl maplibregl-ctrl-group`;
+    this.container.className = `maplibregl-ctrl maplibregl-ctrl-group`;
     this.container.id = 'scale-input-container';
     this.container.innerHTML = `
       <label for="scale-input" class="scale-label">1: </label>
