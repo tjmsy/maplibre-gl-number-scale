@@ -80,12 +80,59 @@ new ScaleRatioControl(map, dpi = 96);
 
 **Example Usage**:  
 ```javascript  
-const control = new ScaleRatioControl(map, 120); // For high-resolution screens  
-map.addControl(control, 'top-right');  
+const scaleRatioControl = new ScaleRatioControl(map); 
+map.addControl(scaleRatioControl, 'top-right');  
 ```  
+
+## Advanced Usage: Utility Functions
+
+This package also exports two utility functions that can be used independently of the `ScaleRatioControl`. These functions allow you to calculate the zoom level from a scale ratio or derive the scale ratio from a zoom level and latitude.
+
+### `getZoomLevelFromScaleRatio`
+
+Calculates the zoom level based on a given scale ratio, latitude, and DPI.
+
+**Parameters:**
+- `scaleRatio` (number, required): The scale ratio (e.g., `1:x`, where `x` is the ratio).
+- `latitude` (number, required): The latitude in degrees.
+- `dpi` (number, optional): Screen or paper DPI (default: 96).
+
+**Returns:**
+- The zoom level as a number.
+
+**Example:**
+```javascript
+import { getZoomLevelFromScaleRatio } from 'scale-ratio-control';
+
+const zoomLevel = getZoomLevelFromScaleRatio(15000, 35.6895); // Scale ratio 1:15000, latitude 35.6895° (e.g., Tokyo)
+console.log(zoomLevel); // Outputs the calculated zoom level
+```
+
+---
+
+### `getScaleRatio`
+
+Calculates the scale ratio (`1:x`) based on the zoom level, latitude, and DPI.
+
+**Parameters:**
+- `zoomLevel` (number, required): The zoom level of the map.
+- `latitude` (number, required): The latitude in degrees.
+- `dpi` (number, optional): Screen or paper DPI (default: 96).
+
+**Returns:**
+- The scale ratio as a number.
+
+**Example:**
+```javascript
+import { getScaleRatio } from 'scale-ratio-control';
+
+const scaleRatio = getScaleRatio(15, 35.6895); // Zoom level 15, latitude 35.6895° (e.g., Tokyo)
+console.log(scaleRatio); // Outputs the scale ratio
+```
+
 
 ---
 
 ## License  
 
-This project is licensed under the MIT License.  
+This project is licensed under the [MIT License](./LICENSE).
