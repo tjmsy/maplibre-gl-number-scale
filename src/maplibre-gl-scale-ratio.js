@@ -2,15 +2,16 @@
 const EARTH_CIRCUMFERENCE = 40075017;
 const TILE_SIZE = 512;
 const INCHES_TO_METERS = 0.0254;
+const DEFAULT_DPI = 96;
 
 /**
  * Calculates the zoom level from the scale ratio.
  * @param {number} scaleRatio - The scale ratio (e.g., 1:x where x is the ratio).
  * @param {number} latitude - The latitude in degrees.
- * @param {number} [dpi=96] - The screen DPI.
+ * @param {number} [dpi = DEFAULT_DPI] - The screen DPI.
  * @return {number} The zoom level.
  */
-export function getZoomLevelFromScaleRatio(scaleRatio, latitude, dpi = 96) {
+export function getZoomLevelFromScaleRatio(scaleRatio, latitude, dpi = DEFAULT_DPI) {
   const latitudeInRadians = (latitude * Math.PI) / 180;
   const latitudeCircumference = EARTH_CIRCUMFERENCE * Math.cos(latitudeInRadians);
   const realMetersPerPixel = scaleRatio * (INCHES_TO_METERS / dpi);
@@ -22,10 +23,10 @@ export function getZoomLevelFromScaleRatio(scaleRatio, latitude, dpi = 96) {
  * Calculates the scale ratio (1:x) based on the zoom level and latitude.
  * @param {number} zoomLevel - The map zoom level.
  * @param {number} latitude - The latitude in degrees.
- * @param {number} [dpi=96] - The screen DPI.
+ * @param {number} [dpi = DEFAULT_DPI] - The screen DPI.
  * @return {number} The scale ratio (e.g., 1:x).
  */
-export function getScaleRatio(zoomLevel, latitude, dpi = 96) {
+export function getScaleRatio(zoomLevel, latitude, dpi = DEFAULT_DPI) {
   const latitudeInRadians = (latitude * Math.PI) / 180;
   const latitudeCircumference = EARTH_CIRCUMFERENCE * Math.cos(latitudeInRadians);
   const pixelsAtEquator = Math.pow(2, zoomLevel) * TILE_SIZE;
@@ -40,9 +41,9 @@ export class ScaleRatioControl {
   /**
    * Creates a new ScaleRatioControl instance.
    * @param {object} map - The MapLibre map instance.
-   * @param {number} [dpi=96] - The screen DPI.
+   * @param {number} [dpi = DEFAULT_DPI] - The screen DPI.
    */
-  constructor(map, dpi = 96) {
+  constructor(map, dpi = DEFAULT_DPI) {
     this._dpi = dpi;
     this.updateScaleInput = this.updateScaleInput.bind(this);
   }
@@ -96,6 +97,7 @@ export class ScaleRatioControl {
    * Binds necessary events to the scale input field and the map.
    */
   bindEvents() {
+    
     this.map.on('zoom', this.updateScaleInput);
     this.map.on('move', this.updateScaleInput);
 
