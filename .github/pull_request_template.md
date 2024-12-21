@@ -1,17 +1,14 @@
-## What does this PR do?
-
-
 ## Pull Request Type
-<!-- Mark one with an "x". -->
+Mark one with an "x".
 ```
-[ ] Adding a Feature
-[ ] Fixing a Bug
-[ ] Documentation Update
-[ ] Style (formatting, naming, or indentation)
-[ ] Refactor (restructure code, no functional changes)
-[ ] Minor Change (does not break existing behavior)
-[ ] Breaking Change (modifies public interface or behavior)
-[ ] Other (please specify)
+[] Adding a Feature
+[] Fixing a Bug
+[] Documentation Update
+[] Style (formatting, naming, or indentation)
+[] Refactor (restructure code, no functional changes)
+[] Minor Change (does not break existing behavior)
+[] Breaking Change (modifies public interface or behavior)
+[] Other (please specify)
 ```
 
 ## Screenshots (optional)
