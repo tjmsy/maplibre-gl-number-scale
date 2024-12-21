@@ -1,20 +1,29 @@
 ## What does this PR do?
-<!-- Briefly describe what this pull request does. -->
 
-## Changes (optional)
-<!-- Describe the changes made in this PR. -->
 
-## Impact (optional)
-<!-- Describe the impact of these changes, if any. -->
+## Pull Request Type
+```
+[ ] Adding a Feature
+[ ] Fixing a Bug
+[ ] Documentation Update
+[ ] Style (formatting, naming, or indentation)
+[ ] Refactor (restructure code, no functional changes)
+[ ] Minor Change (does not break existing behavior)
+[ ] Breaking Change (modifies public interface or behavior)
+[ ] Other (please specify)
+```
 
-## Review notes (optional)
-<!-- Any specific points to focus on during review. -->
+## Screenshots (optional)
 
-## Steps to test (optional)
-<!-- How to verify the changes. -->
+
+## What to Check (optional)
+
+
+## What you tested (optional)
+
 
 ## Related issue(s) (optional)
-<!-- Reference any related issues, e.g., #123 -->
 
-## Additional Information (optional)
-<!-- Any additional context or information. -->
+
+## Other Information (optional)
+
