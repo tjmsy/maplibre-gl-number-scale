@@ -80,15 +80,14 @@ export class ScaleRatioControl {
    */
   addScaleRatioControl() {
     this.container = document.createElement('div');
-    this.container.className = `maplibregl-ctrl maplibregl-ctrl-group`;
-    this.container.id = 'scale-input-container';
+    this.container.className = `scale-ratio-control maplibregl-ctrl maplibregl-ctrl-group`;
     this.container.innerHTML = `
-      <label for="scale-input" class="scale-label">1: </label>
-      <input id="scale-input" type="text" class="scale-input" />
+      <label for="scale-ratio-input" class="scale-ratio-control__label">1: </label>
+      <input id="scale-ratio-input" type="text" class="scale-ratio-control__input" />
     `;
     this.map.getContainer().append(this.container);
 
-    this.scaleInput = this.container.querySelector('#scale-input');
+    this.scaleInput = this.container.querySelector('#scale-ratio-input');
     this.bindEvents();
     this.updateScaleInput();
   }
