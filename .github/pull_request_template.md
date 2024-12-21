@@ -2,6 +2,7 @@
 
 
 ## Pull Request Type
+<!-- Mark one with an "x". -->
 ```
 [ ] Adding a Feature
 [ ] Fixing a Bug
