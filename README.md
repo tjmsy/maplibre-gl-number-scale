@@ -10,9 +10,9 @@ The scale ratio is calculated using the **latitude at the center of the map view
 
 ## Features  
 
-- Seamlessly integrates with MapLibre.  
 - Customizable DPI settings for screen or print environments.
-- Lightweight and easy to use.  
+- Flexible for developers to style and adapt effortlessly.
+- Designed for seamless user experience.
 
 ---
 
@@ -44,13 +44,20 @@ import { ScaleRatioControl } from 'scale-ratio-control';
 
 ### 2. Include the CSS file in your HTML  
 
-For projects using a bundler (e.g., Webpack):  
+To include the default styles for the control, you can link the provided CSS file:
+
 ```javascript  
 import 'scale-ratio-control/dist/ScaleRatioControl.css';  
 ```  
 
 For direct use in the browser:  
-(to be added)
+```html
+<link rel="stylesheet" href="example/ScaleRatioControl.css">
+```
+
+Alternatively, you can create your own CSS to fully customize the design of the control. The default CSS serves as a starting point and can be modified or replaced to suit your needs.
+
+---
 
 ### 3. Add the control to your map  
 
@@ -86,7 +93,7 @@ map.addControl(scaleRatioControl, 'top-right');
 
 ## Advanced Usage: Utility Functions
 
-This package also exports two utility functions that can be used independently of the `ScaleRatioControl`. These functions allow you to calculate the zoom level from a scale ratio or derive the scale ratio from a zoom level and latitude.
+This package also exports two straightforward utility functions that can be used independently of the `ScaleRatioControl`. These functions allow you to easily integrate scale ratio and zoom level calculations into your program, whether for custom controls, analysis, or other specific needs.
 
 ### `getZoomLevelFromScaleRatio`
 
@@ -129,10 +136,3 @@ import { getScaleRatio } from 'scale-ratio-control';
 const scaleRatio = getScaleRatio(15, 35.6895); // Zoom level 15, latitude 35.6895° (e.g., Tokyo)
 console.log(scaleRatio); // Outputs the scale ratio
 ```
-
-
----
-
-## License  
-
-This project is licensed under the [MIT License](./LICENSE).
