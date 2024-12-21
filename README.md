@@ -93,7 +93,7 @@ map.addControl(scaleRatioControl, 'top-right');
 
 ## Advanced Usage: Utility Functions
 
-This package also exports two straightforward utility functions that can be used independently of the `ScaleRatioControl`. These functions allow you to easily integrate scale ratio and zoom level calculations into your program, whether for custom controls, analysis, or other specific needs.
+This package also exports two utility functions that can be used independently of the `ScaleRatioControl`. These functions allow you to easily integrate scale ratio and zoom level calculations into your program, whether for custom controls, analysis, or other specific needs.
 
 ### `getZoomLevelFromScaleRatio`
 
