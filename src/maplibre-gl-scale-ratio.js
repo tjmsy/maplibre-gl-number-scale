@@ -8,10 +8,10 @@ const DEFAULT_DPI = 96;
  * Calculates the zoom level from the scale ratio.
  * @param {number} scaleRatio - The scale ratio (e.g., 1:x where x is the ratio).
  * @param {number} latitude - The latitude in degrees.
- * @param {number} [dpi = DEFAULT_DPI] - The screen DPI.
+ * @param {number} dpi - The screen DPI.
  * @return {number} The zoom level.
  */
-export function getZoomLevelFromScaleRatio(scaleRatio, latitude, dpi = DEFAULT_DPI) {
+export function getZoomLevelFromScaleRatio(scaleRatio, latitude, dpi) {
   const latitudeInRadians = (latitude * Math.PI) / 180;
   const latitudeCircumference = EARTH_CIRCUMFERENCE * Math.cos(latitudeInRadians);
   const realMetersPerPixel = scaleRatio * (INCHES_TO_METERS / dpi);
@@ -23,10 +23,10 @@ export function getZoomLevelFromScaleRatio(scaleRatio, latitude, dpi = DEFAULT_D
  * Calculates the scale ratio (1:x) based on the zoom level and latitude.
  * @param {number} zoomLevel - The map zoom level.
  * @param {number} latitude - The latitude in degrees.
- * @param {number} [dpi = DEFAULT_DPI] - The screen DPI.
+ * @param {number} dpi - The screen DPI.
  * @return {number} The scale ratio (e.g., 1:x).
  */
-export function getScaleRatio(zoomLevel, latitude, dpi = DEFAULT_DPI) {
+export function getScaleRatio(zoomLevel, latitude, dpi) {
   const latitudeInRadians = (latitude * Math.PI) / 180;
   const latitudeCircumference = EARTH_CIRCUMFERENCE * Math.cos(latitudeInRadians);
   const pixelsAtEquator = Math.pow(2, zoomLevel) * TILE_SIZE;
