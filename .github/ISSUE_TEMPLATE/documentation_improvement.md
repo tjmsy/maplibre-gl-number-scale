@@ -51,12 +51,6 @@ Mark one with an "x".
 ```
 
 ## Reason for Improvement (optional)
-<!--
-Why is this improvement necessary? Examples:
-
-The current section is unclear for new users.
-The documentation is outdated and does not reflect recent updates.
--->
 
 
 ## Screenshots (optional)
