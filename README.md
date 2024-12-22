@@ -62,8 +62,8 @@ Alternatively, you can create your own CSS to fully customize the design of the 
 ### 3. Add the control to your map  
 
 ```javascript  
-const control = new ScaleRatioControl(map);  
-map.addControl(control, 'top-left');  
+const scaleRatioControl = new ScaleRatioControl();  
+map.addControl(scaleRatioControl, 'top-left');  
 ```  
 
 ---
@@ -77,17 +77,16 @@ A MapLibre control for handling scale ratios.
 #### Constructor  
 
 ```javascript  
-new ScaleRatioControl(map, dpi = 96);  
+new ScaleRatioControl(dpi = 96);  
 ```  
 
 **Parameters**:  
-- `map` (required): The MapLibre map instance.  
 - `dpi` (optional): Dots Per Inch (DPI) value for the environment. This can represent the DPI of a screen (default: 96) or a printer for paper outputs.  
 
 
 **Example Usage**:  
 ```javascript  
-const scaleRatioControl = new ScaleRatioControl(map); 
+const scaleRatioControl = new ScaleRatioControl(); 
 map.addControl(scaleRatioControl, 'top-right');  
 ```  
 
