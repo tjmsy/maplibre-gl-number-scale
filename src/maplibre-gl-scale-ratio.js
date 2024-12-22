@@ -40,10 +40,9 @@ export function getScaleRatio(zoomLevel, latitude, dpi = DEFAULT_DPI) {
 export class ScaleRatioControl {
   /**
    * Creates a new ScaleRatioControl instance.
-   * @param {object} map - The MapLibre map instance.
    * @param {number} [dpi = DEFAULT_DPI] - The screen DPI.
    */
-  constructor(map, dpi = DEFAULT_DPI) {
+  constructor(dpi = DEFAULT_DPI) {
     this._dpi = dpi;
     this.updateScaleInput = this.updateScaleInput.bind(this);
   }
