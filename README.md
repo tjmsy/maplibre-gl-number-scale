@@ -30,7 +30,7 @@ Demo coming soon on GitHub Pages.
 
 ### via CDN  
 
-(to be added)
+import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@main/src/maplibre-gl-scale-ratio.js';
 
 ---
 
@@ -39,7 +39,7 @@ Demo coming soon on GitHub Pages.
 ### 1. Import the control  
 
 ```javascript  
-import { ScaleRatioControl } from 'scale-ratio-control';  
+import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@main/src/maplibre-gl-scale-ratio.js';
 ```  
 
 ### 2. Include the CSS file in your HTML  
@@ -47,12 +47,12 @@ import { ScaleRatioControl } from 'scale-ratio-control';
 To include the default styles for the control, you can link the provided CSS file:
 
 ```javascript  
-import 'scale-ratio-control/dist/ScaleRatioControl.css';  
+import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@main/src/maplibre-gl-scale-ratio.js';
 ```  
 
 For direct use in the browser:  
 ```html
-<link rel="stylesheet" href="example/ScaleRatioControl.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@main/src/maplibre-gl-scale-ratio.css" />
 ```
 
 Alternatively, you can create your own CSS to fully customize the design of the control. The default CSS serves as a starting point and can be modified or replaced to suit your needs.
