@@ -12,8 +12,10 @@ assignees: ''
 
 ## Proposed Changes (optional)
 
+
 ## Document Name or URL (optional)
 <!-- If this improvement relates to an existing document provide the document name or URL here. -->
+
 
 ## Type of Improvement
 Mark one with an "x". 
@@ -55,6 +57,7 @@ Why is this improvement necessary? Examples:
 The current section is unclear for new users.
 The documentation is outdated and does not reflect recent updates.
 -->
+
 
 ## Screenshots (optional)
 
