@@ -18,7 +18,7 @@ The scale ratio is calculated using the **latitude at the center of the map view
 
 ## Demo  
 
-Demo coming soon on GitHub Pages.  
+[Demo](https://tjmsy.github.io/maplibre-gl-scale-ratio/site/)
 
 ---
 
@@ -30,8 +30,9 @@ Demo coming soon on GitHub Pages.
 
 ### via CDN  
 
+```javascript  
 import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@main/src/maplibre-gl-scale-ratio.js';
-
+```  
 ---
 
 ## Usage  
@@ -81,7 +82,7 @@ new ScaleRatioControl(dpi = 96);
 ```  
 
 **Parameters**:  
-- `dpi` (optional): Dots Per Inch (DPI) value for the environment. This can represent the DPI of a screen (default: 96) or a printer for paper outputs.  
+- `dpi` (optional): Dots Per Inch (DPI) value for the environment. This can represent the DPI of a screen (default: 96) .  
 
 
 **Example Usage**:  
@@ -101,7 +102,7 @@ Calculates the zoom level based on a given scale ratio, latitude, and DPI.
 **Parameters:**
 - `scaleRatio` (number, required): The scale ratio (e.g., `1:x`, where `x` is the ratio).
 - `latitude` (number, required): The latitude in degrees.
-- `dpi` (number, optional): Screen or paper DPI (default: 96).
+- `dpi` (number, optional): Screen DPI (default: 96).
 
 **Returns:**
 - The zoom level as a number.
@@ -123,7 +124,7 @@ Calculates the scale ratio (`1:x`) based on the zoom level, latitude, and DPI.
 **Parameters:**
 - `zoomLevel` (number, required): The zoom level of the map.
 - `latitude` (number, required): The latitude in degrees.
-- `dpi` (number, optional): Screen or paper DPI (default: 96).
+- `dpi` (number, optional): Screen DPI (default: 96).
 
 **Returns:**
 - The scale ratio as a number.
