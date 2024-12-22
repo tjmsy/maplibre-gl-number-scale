@@ -12,7 +12,7 @@ The scale ratio is calculated using the **latitude at the center of the map view
 
 [Demo](https://tjmsy.github.io/maplibre-gl-scale-ratio/site/)
 
-![demo.png](./demo.png)
+![screenshot](https://tjmsy.github.io/maplibre-gl-scale-ratio/assets/images/screenshot.png)
 
 ---
 
