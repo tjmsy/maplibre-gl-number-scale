@@ -1,7 +1,7 @@
 import {
   getZoomLevelFromScaleRatio,
   getScaleRatio,
-  getMetersPerPixelOnEarth,
+  getMetersOnEarthPerPixel,
   ScaleRatioControl,
 } from './maplibre-gl-scale-ratio';
 
@@ -16,7 +16,7 @@ describe('getMetersPerPixelOnEarth', () => {
 
   testValues.forEach(([zoomLevel, latitude, expectedResult]) => {
     it(`should return correct value for zoom level ${zoomLevel} and latitude ${latitude}`, () => {
-      const result = getMetersPerPixelOnEarth(zoomLevel, latitude);
+      const result = getMetersOnEarthPerPixel(zoomLevel, latitude);
       expect(result).toBeCloseTo(expectedResult, 3);
     });
   });
