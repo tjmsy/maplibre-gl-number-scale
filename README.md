@@ -1,6 +1,6 @@
 # maplibre-gl-scale-ratio
 
-A custom control for MapLibre that enables users to:  
+A custom control for [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js/)  that enables users to:  
 - Display the `scale ratio` (e.g. `1:15000`) based on the current `zoom level`.  
 - Set the `zoom level` by inputting a `scale ratio`.  
 
