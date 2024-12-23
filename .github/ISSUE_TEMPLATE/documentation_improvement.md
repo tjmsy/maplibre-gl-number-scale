@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## Suggested Improvement
+## Suggested Improvement (optional)
 
 
 ## Proposed Changes (optional)
@@ -23,6 +23,7 @@ Mark one with an "x".
 ### Correct Content
 ```
 [] Fixing typos, grammatical errors
+[] Fixing Incorrect Information
 ```
 
 ### Update Content
