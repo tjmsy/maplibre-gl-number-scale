@@ -57,6 +57,7 @@ map.addControl(scaleRatioControl);
 ## Utility Functions  
 
 This plugin also provides some tiny utility functions that can be used independently of the control.
+
 These functions can calculate:  
 
 - The `scale ratio` from the `zoom level` and `latitude`.
@@ -146,4 +147,5 @@ console.log(metersPerPixel); // e.g. 1.940
 ## Feedback & Contributions  
 
 Feel free to open an issue, start a discussion, or reach out with any feedback or suggestions!
+
 Contributions are always welcome!
