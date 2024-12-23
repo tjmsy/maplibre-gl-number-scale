@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## Feature Description
+## Feature Description (optional)
 
 ## Why this feature is needed (optional)
 
