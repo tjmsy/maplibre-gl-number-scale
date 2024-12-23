@@ -1,19 +1,26 @@
 // Constants
-const EARTH_CIRCUMFERENCE = 40075000;
-const TILE_SIZE = 512;
+
+// Earth's total circumference in meters at the equator
+const EQUATOR_CIRCUMFERENCE_IN_METERS = 40075000;
+
+// Size of a map tile in pixels
+const TILE_SIZE_IN_PIXELS = 512;
+
+// Conversion factor from inches to meters
 const INCHES_TO_METERS = 0.0254;
+
+// Default screen DPI
 const DEFAULT_DPI = 96;
 
 /**
- * Calculates the Earth's circumference at a given latitude.
- * This is the circumference of the Earth along a line that slices through the Earth
- * at the specified latitude.
+ * Calculates the Earth's circumference at the specified latitude in meters.
+ *
  * @param {number} latitude - The latitude in degrees.
  * @return {number} The Earth's circumference at the given latitude, in meters.
  */
-function getLatitudeCircumferenceOnEarth(latitude) {
-  const latitudeInRadians = (latitude * Math.PI) / 180;
-  return EARTH_CIRCUMFERENCE * Math.cos(latitudeInRadians);
+function getEarthLatitudeCircumferenceInMeters(latitude) {
+  const latitudeInRadians = (latitude / 180) * Math.PI;
+  return EQUATOR_CIRCUMFERENCE_IN_METERS * Math.cos(latitudeInRadians);
 }
 
 /**
@@ -23,20 +30,20 @@ function getLatitudeCircumferenceOnEarth(latitude) {
  * @param {number} latitude - The latitude in degrees.
  * @return {number} The meters represented by one pixel at the given zoom level and latitude.
  */
-export function getMetersPerPixelOnEarth(zoomLevel, latitude) {
-  const latitudeCircumferenceOnEarth = getLatitudeCircumferenceOnEarth(latitude);
-  const earthPixelWidth = 2 ** zoomLevel * TILE_SIZE;
+export function getMetersOnEarthPerPixel(zoomLevel, latitude) {
+  const latitudeCircumferenceOnEarth = getEarthLatitudeCircumferenceInMeters(latitude);
+  const earthPixelWidth = 2 ** zoomLevel * TILE_SIZE_IN_PIXELS;
   return latitudeCircumferenceOnEarth / earthPixelWidth;
 }
 
 /**
- * Calculates the number of meters per pixel on the map based on the given DPI (dots per inch).
+ * Calculates the number of pixels per meter on the map based on the given DPI (dots per inch).
  *
  * @param {number} dpi - The screen DPI.
- * @returns {number} The meters represented by one pixel on the map.
+ * @returns {number} The number of pixels per meter on the map.
  */
-function getMetersPerPixelOnMap(dpi) {
-  return INCHES_TO_METERS / dpi;
+function getPixelsPerMeterOnMap(dpi) {
+  return dpi / INCHES_TO_METERS;
 }
 
 /**
@@ -47,10 +54,11 @@ function getMetersPerPixelOnMap(dpi) {
  * @return {number} The zoom level.
  */
 export function getZoomLevelFromScaleRatio(scaleRatio, latitude, dpi = DEFAULT_DPI) {
-  const latitudeCircumferenceOnEarth = getLatitudeCircumferenceOnEarth(latitude);
-  const latitudeCircumferenceOnMap = latitudeCircumferenceOnEarth / scaleRatio;
-  const earthPixelWidth = latitudeCircumferenceOnMap / (INCHES_TO_METERS / dpi);
-  return Math.log2(earthPixelWidth / TILE_SIZE);
+  const latitudeCircumferenceOnEarthInMeters = getEarthLatitudeCircumferenceInMeters(latitude);
+  const latitudeCircumferenceOnMapInMeters = latitudeCircumferenceOnEarthInMeters / scaleRatio;
+  const pixelsPerMeterOnMap = getPixelsPerMeterOnMap(dpi);
+  const earthPixelWidth = latitudeCircumferenceOnMapInMeters * pixelsPerMeterOnMap;
+  return Math.log2(earthPixelWidth / TILE_SIZE_IN_PIXELS);
 }
 
 /**
@@ -61,9 +69,9 @@ export function getZoomLevelFromScaleRatio(scaleRatio, latitude, dpi = DEFAULT_D
  * @return {number} The scale ratio (e.g., 1:x).
  */
 export function getScaleRatio(zoomLevel, latitude, dpi = DEFAULT_DPI) {
-  const metersPerPixelOnEarth = getMetersPerPixelOnEarth(zoomLevel, latitude);
-  const metersPerPixelOnMap = getMetersPerPixelOnMap(dpi);
-  return Math.round(metersPerPixelOnEarth / metersPerPixelOnMap);
+  const metersOnEarthPerPixel = getMetersOnEarthPerPixel(zoomLevel, latitude);
+  const pixelsPerMeterOnMap = getPixelsPerMeterOnMap(dpi);
+  return Math.round(metersOnEarthPerPixel * pixelsPerMeterOnMap);
 }
 
 /**
