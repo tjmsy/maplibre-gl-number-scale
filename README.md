@@ -23,10 +23,10 @@ The `scale ratio` is calculated using the **latitude at the center of the map vi
 
 ```html
 <!-- Include the JavaScript file -->
-<script src="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@latest/src/maplibre-gl-scale-ratio.js"></script>
 
 <!-- Include the CSS file -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@latest/src/maplibre-gl-scale-ratio.css" />
 ```
 
 ### 2. Add the Scale Ratio Control to your MapLibre map
@@ -145,4 +145,5 @@ console.log(metersPerPixel); // e.g. 1.940
 
 ## Feedback & Contributions  
 
-Feedback and contributions are welcome.
+Feel free to open an issue, start a discussion, or reach out with any feedback or suggestions!
+Contributions are always welcome!
