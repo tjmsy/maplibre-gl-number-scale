@@ -74,7 +74,8 @@ export class ScaleRatioControl {
    * Creates a new ScaleRatioControl instance.
    * @param {number} [dpi = DEFAULT_DPI] - The screen DPI.
    */
-  constructor(dpi = DEFAULT_DPI) {
+  constructor(options = {}) {
+    const { dpi = DEFAULT_DPI } = options;
     this.dpi = dpi;
     this.updateScaleInput = this.updateScaleInput.bind(this);
   }
