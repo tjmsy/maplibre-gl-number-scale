@@ -33,7 +33,7 @@ The `scale ratio` is calculated using the **latitude at the center of the map vi
 
 
 ```javascript
-import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@main/src/maplibre-gl-scale-ratio.js';
+import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@latest/src/maplibre-gl-scale-ratio.js';
 
 // Initialize the control
 const scaleRatioControl = new ScaleRatioControl();  
