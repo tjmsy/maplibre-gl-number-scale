@@ -29,7 +29,7 @@ export function getZoomLevelFromScaleRatio(scaleRatio, latitude, dpi = DEFAULT_D
 export function getScaleRatio(zoomLevel, latitude, dpi = DEFAULT_DPI) {
   const latitudeInRadians = (latitude * Math.PI) / 180;
   const latitudeCircumference = EARTH_CIRCUMFERENCE * Math.cos(latitudeInRadians);
-  const pixelsAtEquator = Math.pow(2, zoomLevel) * TILE_SIZE;
+  const pixelsAtEquator = 2 ** zoomLevel * TILE_SIZE;
   const realMetersPerPixel = latitudeCircumference / pixelsAtEquator;
   return Math.round(realMetersPerPixel / (INCHES_TO_METERS / dpi));
 }
@@ -43,7 +43,7 @@ export class ScaleRatioControl {
    * @param {number} [dpi = DEFAULT_DPI] - The screen DPI.
    */
   constructor(dpi = DEFAULT_DPI) {
-    this._dpi = dpi;
+    this.dpi = dpi;
     this.updateScaleInput = this.updateScaleInput.bind(this);
   }
 
@@ -54,7 +54,7 @@ export class ScaleRatioControl {
   calculateScaleRatio() {
     const zoomLevel = this.map.getZoom();
     const latitude = this.map.getCenter().lat;
-    return getScaleRatio(zoomLevel, latitude, this._dpi);
+    return getScaleRatio(zoomLevel, latitude, this.dpi);
   }
 
   /**
@@ -71,7 +71,7 @@ export class ScaleRatioControl {
    */
   updateMapZoom(scaleRatio) {
     const latitude = this.map.getCenter().lat;
-    const zoomLevel = getZoomLevelFromScaleRatio(scaleRatio, latitude, this._dpi);
+    const zoomLevel = getZoomLevelFromScaleRatio(scaleRatio, latitude, this.dpi);
     this.map.setZoom(zoomLevel);
   }
 
@@ -80,7 +80,7 @@ export class ScaleRatioControl {
    */
   addScaleRatioControl() {
     this.container = document.createElement('div');
-    this.container.className = `scale-ratio-control maplibregl-ctrl maplibregl-ctrl-group`;
+    this.container.className = 'scale-ratio-control maplibregl-ctrl maplibregl-ctrl-group';
     this.container.innerHTML = `
       <label for="scale-ratio-input" class="scale-ratio-control__label">1: </label>
       <input id="scale-ratio-input" type="text" class="scale-ratio-control__input" />
@@ -96,13 +96,12 @@ export class ScaleRatioControl {
    * Binds necessary events to the scale input field and the map.
    */
   bindEvents() {
-    
     this.map.on('zoom', this.updateScaleInput);
     this.map.on('move', this.updateScaleInput);
 
     this.scaleInput.addEventListener('change', (e) => {
       const scaleRatio = Number(e.target.value);
-      if (!isNaN(scaleRatio) && scaleRatio > 0) {
+      if (!Number.isNaN(scaleRatio) && scaleRatio > 0) {
         this.updateMapZoom(scaleRatio);
       }
     });
