@@ -52,21 +52,22 @@ const scaleRatioControl = new ScaleRatioControl({
 map.addControl(scaleRatioControl);
 ```
 
+---
+
 ## Utility Functions  
 
 This plugin also provides some tiny utility functions that can be used independently of the control.
 These functions can calculate:  
 
-- The `meters per pixel` at a given `zoom level` and `latitude`.  
-- The `zoom level` from a `scale ratio` and `latitude`.
 - The `scale ratio` from the `zoom level` and `latitude`.
-
+- The `zoom level` from a `scale ratio` and `latitude`.
+- The `meters per pixel` at a given `zoom level` and `latitude`.  
 
 Here are the available functions:
 
-### `getMetersOnEarthPerPixel`
+### `getScaleRatio`
 
-Calculates the `meters per pixel` at a given `zoom level` and `latitude`.
+Calculates the `scale ratio` (`1:x`) based on the `zoom level`, `latitude`, and `DPI`.
 
 **Parameters:**
 
@@ -74,21 +75,21 @@ Calculates the `meters per pixel` at a given `zoom level` and `latitude`.
 
 `latitude` (number, required): The `latitude` in degrees.
 
+`dpi` (number, optional): Screen `DPI` (default: 96).
+
 **Returns:**
 
-The `meters per pixel` at the given `zoom level` and `latitude` as a number.
+The `scale ratio` as a number.
 
 **Example:**
 
 ```javascript
-import { getMetersOnEarthPerPixel } from 'scale-ratio-control';
+import { getScaleRatio } from 'scale-ratio-control';
 
-const metersPerPixel = getMetersOnEarthPerPixel(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
+const scaleRatio = getScaleRatio(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
 
-console.log(metersPerPixel); // e.g. 1.940
+console.log("1:", scaleRatio); // e.g. 1: 7332
 ```
-
----
 
 ### `getZoomLevelFromScaleRatio`
 
@@ -116,11 +117,9 @@ const zoomLevel = getZoomLevelFromScaleRatio(15000, 35.6895); // Scale ratio 1:1
 console.log(zoomLevel); // e.g. 13.96
 ```
 
----
+### `getMetersOnEarthPerPixel`
 
-### `getScaleRatio`
-
-Calculates the `scale ratio` (`1:x`) based on the `zoom level`, `latitude`, and `DPI`.
+Calculates the `meters per pixel` at a given `zoom level` and `latitude`.
 
 **Parameters:**
 
@@ -128,21 +127,18 @@ Calculates the `scale ratio` (`1:x`) based on the `zoom level`, `latitude`, and 
 
 `latitude` (number, required): The `latitude` in degrees.
 
-`dpi` (number, optional): Screen `DPI` (default: 96).
-
 **Returns:**
 
-The `scale ratio` as a number.
+The `meters per pixel` at the given `zoom level` and `latitude` as a number.
 
 **Example:**
 
 ```javascript
+import { getMetersOnEarthPerPixel } from 'scale-ratio-control';
 
-import { getScaleRatio } from 'scale-ratio-control';
+const metersPerPixel = getMetersOnEarthPerPixel(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
 
-const scaleRatio = getScaleRatio(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
-
-console.log("1:", scaleRatio); // e.g. 1: 7332
+console.log(metersPerPixel); // e.g. 1.940
 ```
 
 ---
