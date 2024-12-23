@@ -8,6 +8,7 @@ Mark one with an "x".
 [] Refactor (restructure code, no functional changes)
 [] Minor Change (does not break existing behavior)
 [] Breaking Change (modifies public interface or behavior)
+[] Adding/Updating Tests 
 [] Other (please specify)
 ```
 
