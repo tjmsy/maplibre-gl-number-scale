@@ -1,10 +1,10 @@
 # Scale Ratio Control  
 
 A custom control for MapLibre that enables users to:  
-- Display the scale ratio (e.g., `1:15000`) based on the current zoom level.  
-- Set the zoom level by inputting a scale ratio.  
+- Display the `scale ratio` (e.g. `1:15000`) based on the current `zoom level`.  
+- Set the `zoom level` by inputting a `scale ratio`.  
 
-The scale ratio is calculated using the **latitude at the center of the map view** and an **optional DPI value (default: 96)**.  
+The `scale ratio` is calculated using the **latitude at the center of the map view** and an **optional DPI value (default: 96)**.  
 
 ---
 
@@ -43,7 +43,7 @@ map.addControl(scaleRatioControl);
 ```
 
 ### 3. Options (Optional)
-You can customize the control by passing options to the constructor. For example, you can specify the DPI value if needed:
+You can customize the control by passing options to the constructor. For example, you can specify the `DPI` value if needed:
 
 ```javascript
 const scaleRatioControl = new ScaleRatioControl({
@@ -57,26 +57,26 @@ map.addControl(scaleRatioControl);
 This plugin also provides some tiny utility functions that can be used independently of the control.
 These functions can calculate:  
 
-- The meters per pixel at a given zoom level and latitude.  
-- The zoom level from a scale ratio and latitude.
-- The scale ratio from the zoom level and latitude.  
+- The `meters per pixel` at a given `zoom level` and `latitude`.  
+- The `zoom level` from a `scale ratio` and `latitude`.
+- The `scale ratio` from the `zoom level` and `latitude`.
 
 
 Here are the available functions:
 
 ### `getMetersPerPixelOnEarth`
 
-Calculates the meters per pixel at a given zoom level and latitude.
+Calculates the `meters per pixel` at a given `zoom level` and `latitude`.
 
 **Parameters:**
 
-`zoomLevel` (number, required): The zoom level of the map.
+`zoomLevel` (number, required): The `zoom level` of the map.
 
-`latitude` (number, required): The latitude in degrees.
+`latitude` (number, required): The `latitude` in degrees.
 
 **Returns:**
 
-The meters per pixel at the given zoom level and latitude as a number.
+The `meters per pixel` at the given `zoom level` and `latitude` as a number.
 
 **Example:**
 
@@ -92,19 +92,19 @@ console.log(metersPerPixel); // e.g. 1.940
 
 ### `getZoomLevelFromScaleRatio`
 
-Calculates the zoom level based on a given scale ratio, latitude, and DPI.
+Calculates the `zoom level` based on a given `scale ratio`, `latitude`, and `DPI`.
 
 **Parameters:**
 
-`scaleRatio` (number, required): The scale ratio (e.g., `1:x`, where `x` is the ratio).
+`scaleRatio` (number, required): The `scale ratio` (e.g., `1:x`, where `x` is the ratio).
 
-`latitude` (number, required): The latitude in degrees.
+`latitude` (number, required): The `latitude` in degrees.
 
-`dpi` (number, optional): Screen DPI (default: 96).
+`dpi` (number, optional): Screen `DPI` (default: 96).
 
 **Returns:**
 
-The zoom level as a number.
+The `zoom level` as a number.
 
 **Example:**
 
@@ -120,19 +120,19 @@ console.log(zoomLevel); // e.g. 13.96
 
 ### `getScaleRatio`
 
-Calculates the scale ratio (`1:x`) based on the zoom level, latitude, and DPI.
+Calculates the `scale ratio` (`1:x`) based on the `zoom level`, `latitude`, and `DPI`.
 
 **Parameters:**
 
-`zoomLevel` (number, required): The zoom level of the map.
+`zoomLevel` (number, required): The `zoom level` of the map.
 
-`latitude` (number, required): The latitude in degrees.
+`latitude` (number, required): The `latitude` in degrees.
 
-`dpi` (number, optional): Screen DPI (default: 96).
+`dpi` (number, optional): Screen `DPI` (default: 96).
 
 **Returns:**
 
-The scale ratio as a number.
+The `scale ratio` as a number.
 
 **Example:**
 
