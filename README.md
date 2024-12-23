@@ -23,10 +23,10 @@ The `scale ratio` is calculated using the **latitude at the center of the map vi
 
 ```html
 <!-- Include the JavaScript file -->
-<script src="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@main/src/maplibre-gl-scale-ratio.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.js"></script>
 
 <!-- Include the CSS file -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@main/src/maplibre-gl-scale-ratio.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.css" />
 ```
 
 ### 2. Add the Scale Ratio Control to your MapLibre map
@@ -64,7 +64,7 @@ These functions can calculate:
 
 Here are the available functions:
 
-### `getMetersPerPixelOnEarth`
+### `getMetersOnEarthPerPixel`
 
 Calculates the `meters per pixel` at a given `zoom level` and `latitude`.
 
@@ -81,9 +81,9 @@ The `meters per pixel` at the given `zoom level` and `latitude` as a number.
 **Example:**
 
 ```javascript
-import { getMetersPerPixelOnEarth } from 'scale-ratio-control';
+import { getMetersOnEarthPerPixel } from 'scale-ratio-control';
 
-const metersPerPixel = getMetersPerPixelOnEarth(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
+const metersPerPixel = getMetersOnEarthPerPixel(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
 
 console.log(metersPerPixel); // e.g. 1.940
 ```
