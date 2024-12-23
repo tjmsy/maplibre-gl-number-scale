@@ -1,4 +1,4 @@
-import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@main/src/maplibre-gl-scale-ratio.js';
+import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.js';
 
 const map = new maplibregl.Map({
   container: 'map',
