@@ -1,8 +1,8 @@
 # maplibre-gl-scale-ratio
 
-A custom control for [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js/)  that enables users to:  
-- Display the scale ratio (e.g. 1:15000) based on the current zoom level, map center latitude, and DPI value (default: 96).
-- Set the zoom level by inputting a scale ratio.  
+A custom control for [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js/) that enables users to:  
+- Display the scale ratio (e.g., 1:15000) based on the current zoom level, map center latitude, and DPI value (default: 96).
+- Set the zoom level by inputting a scale ratio.
 
 ---
 
@@ -16,20 +16,19 @@ A custom control for [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js
 
 ## Usage  
 
-Include CSS from CDN.
+Include CSS from CDN:
 
 ```
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.css" />
 ```
 
-Import JavaScript from CDN 
-
+Import JavaScript from CDN:
 
 ```javascript
 import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.js';
 ```
 
-Add Control.
+Add Control:
 
 ```javascript
 const scaleRatioControl = new ScaleRatioControl();  
@@ -55,7 +54,7 @@ These functions can calculate:
 
 - The `scale ratio` from the zoom level and latitude.
 - The `zoom level` from a scale ratio and latitude.
-- The `meters per pixel` at a given zoom level and latitude.  
+- The `meters per pixel` at a given zoom level and latitude.
 
 Here are the available functions:
 
@@ -80,9 +79,9 @@ The `scale ratio` as a number.
 ```javascript
 import { getScaleRatio } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.js';
 
-const scaleRatio = getScaleRatio(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
+const scaleRatio = getScaleRatio(15, 35.6895); // Zoom level 15, latitude 35.6895 (Tokyo)
 
-console.log("1:", scaleRatio); // e.g. 1: 7332
+console.log("Scale ratio: 1:", scaleRatio); // e.g. Scale ratio: 1:7332
 ```
 
 ### getZoomLevelFromScaleRatio
@@ -95,7 +94,7 @@ Calculates the zoom level based on a given scale ratio, latitude, and DPI.
 
 `latitude` (number, required): The latitude in degrees.
 
-`dpi` (number, optional): Screen DPI` (default: 96).
+`dpi` (number, optional): Screen DPI (default: 96).
 
 **Returns:**
 
@@ -106,9 +105,9 @@ The `zoom level` as a number.
 ```javascript
 import { getZoomLevelFromScaleRatio } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.js';
 
-const zoomLevel = getZoomLevelFromScaleRatio(15000, 35.6895); // Scale ratio 1:15000, latitude 35.6895 (eg. Tokyo)
+const zoomLevel = getZoomLevelFromScaleRatio(15000, 35.6895); // Scale ratio 1:15000, latitude 35.6895 (Tokyo)
 
-console.log(zoomLevel); // e.g. 13.96
+console.log("Zoom level:", zoomLevel); // e.g. 13.96
 ```
 
 ### getMetersOnEarthPerPixel
@@ -128,11 +127,11 @@ The `meters per pixel` at the given zoom level and latitude as a number.
 **Example:**
 
 ```javascript
-import { getMetersOnEarthPerPixel } from  'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.js';
+import { getMetersOnEarthPerPixel } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.js';
 
-const metersPerPixel = getMetersOnEarthPerPixel(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
+const metersPerPixel = getMetersOnEarthPerPixel(15, 35.6895); // Zoom level 15, latitude 35.6895 (Tokyo)
 
-console.log(metersPerPixel); // e.g. 1.940
+console.log("Meters per pixel:", metersPerPixel); // e.g. Meters per pixel: 1.940
 ```
 
 ---
