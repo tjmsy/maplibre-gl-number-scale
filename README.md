@@ -138,6 +138,6 @@ console.log("Meters per pixel:", metersPerPixel); // e.g. Meters per pixel: 1.94
 
 ## Feedback & Contributions  
 
-Feel free to open an issue, start a discussion, or reach out with any feedback or suggestions!
+Feel free to open an [issue](https://github.com/tjmsy/maplibre-gl-scale-ratio/issues), start a [discussion](https://github.com/tjmsy/maplibre-gl-scale-ratio/discussions), or share any feedback or suggestions!
 
-Contributions are always welcome!
+Contributions are always welcome.
