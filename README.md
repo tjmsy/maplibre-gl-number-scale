@@ -1,10 +1,8 @@
 # maplibre-gl-scale-ratio
 
 A custom control for [MapLibre GL JS](https://github.com/maplibre/maplibre-gl-js/)  that enables users to:  
-- Display the `scale ratio` (e.g. `1:15000`) based on the current `zoom level`.  
-- Set the `zoom level` by inputting a `scale ratio`.  
-
-The `scale ratio` is calculated using the **latitude at the center of the map view** and an **optional DPI value (default: 96)**.  
+- Display the scale ratio (e.g. 1:15000) based on the current zoom level, map center latitude, and DPI value (default: 96).
+- Set the zoom level by inputting a scale ratio.  
 
 ---
 
@@ -18,32 +16,27 @@ The `scale ratio` is calculated using the **latitude at the center of the map vi
 
 ## Usage  
 
-### 1. Include the JavaScript and CSS files  
+Include CSS from CDN.
 
-
-```html
-<!-- Include the JavaScript file -->
-<script src="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.js"></script>
-
-<!-- Include the CSS file -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.css" />
+```
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.css" />
 ```
 
-### 2. Add the Scale Ratio Control to your MapLibre map
+Import JavaScript from CDN 
 
 
 ```javascript
-import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.js';
+import { ScaleRatioControl } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.js';
+```
 
-// Initialize the control
+Add Control.
+
+```javascript
 const scaleRatioControl = new ScaleRatioControl();  
-
-// Add the control to your map
 map.addControl(scaleRatioControl);
 ```
 
-### 3. Options (Optional)
-You can customize the control by passing options to the constructor. For example, you can specify the `DPI` value if needed:
+Optionally, you can specify the DPI value if needed:
 
 ```javascript
 const scaleRatioControl = new ScaleRatioControl({
@@ -56,27 +49,27 @@ map.addControl(scaleRatioControl);
 
 ## Utility Functions  
 
-This plugin also provides some tiny utility functions that can be used independently of the control.
+It also provides standalone utility functions.
 
 These functions can calculate:  
 
-- The `scale ratio` from the `zoom level` and `latitude`.
-- The `zoom level` from a `scale ratio` and `latitude`.
-- The `meters per pixel` at a given `zoom level` and `latitude`.  
+- The `scale ratio` from the zoom level and latitude.
+- The `zoom level` from a scale ratio and latitude.
+- The `meters per pixel` at a given zoom level and latitude.  
 
 Here are the available functions:
 
-### `getScaleRatio`
+### getScaleRatio
 
-Calculates the `scale ratio` (`1:x`) based on the `zoom level`, `latitude`, and `DPI`.
+Calculates the scale ratio (1:x) based on the zoom level, latitude, and DPI.
 
 **Parameters:**
 
-`zoomLevel` (number, required): The `zoom level` of the map.
+`zoomLevel` (number, required): The zoom level of the map.
 
-`latitude` (number, required): The `latitude` in degrees.
+`latitude` (number, required): The latitude in degrees.
 
-`dpi` (number, optional): Screen `DPI` (default: 96).
+`dpi` (number, optional): Screen DPI (default: 96).
 
 **Returns:**
 
@@ -85,24 +78,24 @@ The `scale ratio` as a number.
 **Example:**
 
 ```javascript
-import { getScaleRatio } from from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.js';
+import { getScaleRatio } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.js';
 
 const scaleRatio = getScaleRatio(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
 
 console.log("1:", scaleRatio); // e.g. 1: 7332
 ```
 
-### `getZoomLevelFromScaleRatio`
+### getZoomLevelFromScaleRatio
 
-Calculates the `zoom level` based on a given `scale ratio`, `latitude`, and `DPI`.
+Calculates the zoom level based on a given scale ratio, latitude, and DPI.
 
 **Parameters:**
 
-`scaleRatio` (number, required): The `scale ratio` (e.g., `1:x`, where `x` is the ratio).
+`scaleRatio` (number, required): The scale ratio (e.g., 1:x, where x is the ratio).
 
-`latitude` (number, required): The `latitude` in degrees.
+`latitude` (number, required): The latitude in degrees.
 
-`dpi` (number, optional): Screen `DPI` (default: 96).
+`dpi` (number, optional): Screen DPI` (default: 96).
 
 **Returns:**
 
@@ -111,31 +104,31 @@ The `zoom level` as a number.
 **Example:**
 
 ```javascript
-import { getZoomLevelFromScaleRatio } from from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.js';
+import { getZoomLevelFromScaleRatio } from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.js';
 
 const zoomLevel = getZoomLevelFromScaleRatio(15000, 35.6895); // Scale ratio 1:15000, latitude 35.6895 (eg. Tokyo)
 
 console.log(zoomLevel); // e.g. 13.96
 ```
 
-### `getMetersOnEarthPerPixel`
+### getMetersOnEarthPerPixel
 
-Calculates the `meters per pixel` at a given `zoom level` and `latitude`.
+Calculates the meters per pixel at a given zoom level and latitude.
 
 **Parameters:**
 
-`zoomLevel` (number, required): The `zoom level` of the map.
+`zoomLevel` (number, required): The zoom level of the map.
 
-`latitude` (number, required): The `latitude` in degrees.
+`latitude` (number, required): The latitude in degrees.
 
 **Returns:**
 
-The `meters per pixel` at the given `zoom level` and `latitude` as a number.
+The `meters per pixel` at the given zoom level and latitude as a number.
 
 **Example:**
 
 ```javascript
-import { getMetersOnEarthPerPixel } from from 'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@0.1.0/src/maplibre-gl-scale-ratio.js';
+import { getMetersOnEarthPerPixel } from  'https://cdn.jsdelivr.net/gh/tjmsy/maplibre-gl-scale-ratio@v0.1.0/src/maplibre-gl-scale-ratio.js';
 
 const metersPerPixel = getMetersOnEarthPerPixel(15, 35.6895); // Zoom level 15, latitude 35.6895 (e.g., Tokyo)
 
