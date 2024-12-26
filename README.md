@@ -107,7 +107,7 @@ import { getZoomLevelFromScaleRatio } from 'https://cdn.jsdelivr.net/gh/tjmsy/ma
 
 const zoomLevel = getZoomLevelFromScaleRatio(15000, 35.6895); // Scale ratio 1:15000, latitude 35.6895 (Tokyo)
 
-console.log("Zoom level:", zoomLevel); // e.g. 13.96
+console.log("Zoom level:", zoomLevel); // e.g. Zoom level: 13.96
 ```
 
 ### getMetersOnEarthPerPixel
